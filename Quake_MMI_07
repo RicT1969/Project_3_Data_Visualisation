@@ -1,3 +1,0 @@
-,type,geometry.type,geometry.coordinates,properties.publicID,properties.time,properties.depth,properties.magnitude,properties.mmi,properties.locality,properties.quality
-0,Feature,Point,"[176.5203247, -40.26909256]",2023p310621,2023-04-25T22:19:03.548Z,13.39922428,5.439800973,7,5 km west of Porangahau,best
-1,Feature,Point,"[176.619812, -40.28248215]",2023p310616,2023-04-25T22:16:14.377Z,20.70372009,5.887213472,7,Within 5 km of Porangahau,best
