@@ -1,0 +1,11 @@
+,type,geometry.type,geometry.coordinates,properties.publicID,properties.time,properties.depth,properties.magnitude,properties.mmi,properties.locality,properties.quality
+0,Feature,Point,"[176.7364349, -40.36449814]",2023p428379,2023-06-08T12:00:29.595Z,18.4204483,4.769606571,6,10 km south-east of Porangahau,best
+1,Feature,Point,"[176.7270355, -40.35204697]",2023p427805,2023-06-08T06:54:43.150Z,15.4692421,4.821995856,6,10 km south-east of Porangahau,best
+2,Feature,Point,"[176.5203247, -40.26909256]",2023p310621,2023-04-25T22:19:03.548Z,13.39922428,5.439800973,7,5 km west of Porangahau,best
+3,Feature,Point,"[176.619812, -40.28248215]",2023p310616,2023-04-25T22:16:14.377Z,20.70372009,5.887213472,7,Within 5 km of Porangahau,best
+4,Feature,Point,"[174.5874176, -40.57481766]",2023p122368,2023-02-15T06:38:10.342Z,54.28686523,5.976956766,6,50 km north-west of Paraparaumu,best
+5,Feature,Point,"[175.7054138, -37.58729935]",2023p087955,2023-02-02T13:02:43.493Z,5.955107212,4.795154627,6,5 km south of Te Aroha,best
+6,Feature,Point,"[175.6892548, -37.59829712]",2023p007281,2023-01-03T16:39:21.821Z,6.732970715,5.109284389,6,5 km south of Te Aroha,best
+7,Feature,Point,"[175.9560089, -38.85837173]",2022p901216,2022-11-30T10:47:59.057Z,9.143449783,5.74251188,6,20 km south-west of Taupo,best
+8,Feature,Point,"[177.7302485, -37.78975043]",2022p857336,2022-11-14T05:08:51.753Z,9.6875,4.58320538,6,5 km south-east of Te Kaha,deleted
+9,Feature,Point,"[174.1851654, -40.81290436]",2022p714540,2022-09-22T09:07:06.335Z,52.74744415,5.787389653,6,30 km north-east of French Pass,best
