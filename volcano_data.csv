@@ -1,13 +1,13 @@
-,volcanoID,volcanoTitle,longitude,latitude,acc,activity,level,hazards
-0,taupo,Taupo,175.896,-38.784,Green,No volcanic unrest.,0,Volcanic environment hazards.
-1,tongariro,Tongariro,175.641727,-39.133318,Green,No volcanic unrest.,0,Volcanic environment hazards.
-2,aucklandvolcanicfield,Auckland Volcanic Field,174.77,-36.985,Green,No volcanic unrest.,0,Volcanic environment hazards.
-3,kermadecislands,Kermadec Islands,-177.914,-29.254,Green,No volcanic unrest.,0,Volcanic environment hazards.
-4,mayorisland,Mayor Island,176.251,-37.286,Green,No volcanic unrest.,0,Volcanic environment hazards.
-5,ngauruhoe,Ngauruhoe,175.632,-39.156,Green,No volcanic unrest.,0,Volcanic environment hazards.
-6,northland,Northland,173.63,-35.395,Green,No volcanic unrest.,0,Volcanic environment hazards.
-7,okataina,Okataina,176.501,-38.119,Green,No volcanic unrest.,0,Volcanic environment hazards.
-8,rotorua,Rotorua,176.281,-38.093,Green,No volcanic unrest.,0,Volcanic environment hazards.
-9,taranakiegmont,Taranaki/Egmont,174.061,-39.298,Green,No volcanic unrest.,0,Volcanic environment hazards.
-10,whiteisland,White Island,177.183,-37.521,Yellow,Moderate to heightened volcanic unrest.,2,"Volcanic unrest hazards, potential for eruption hazards."
-11,ruapehu,Ruapehu,175.563,-39.281,Green,Minor volcanic unrest.,1,Volcanic unrest hazards.
+volcanoID,volcanoTitle,longitude,latitude,acc,activity,level,hazards
+taupo,Taupo,175.896,-38.784,Green,No volcanic unrest.,0,Volcanic environment hazards.
+tongariro,Tongariro,175.641727,-39.133318,Green,No volcanic unrest.,0,Volcanic environment hazards.
+aucklandvolcanicfield,Auckland Volcanic Field,174.77,-36.985,Green,No volcanic unrest.,0,Volcanic environment hazards.
+kermadecislands,Kermadec Islands,-177.914,-29.254,Green,No volcanic unrest.,0,Volcanic environment hazards.
+mayorisland,Mayor Island,176.251,-37.286,Green,No volcanic unrest.,0,Volcanic environment hazards.
+ngauruhoe,Ngauruhoe,175.632,-39.156,Green,No volcanic unrest.,0,Volcanic environment hazards.
+northland,Northland,173.63,-35.395,Green,No volcanic unrest.,0,Volcanic environment hazards.
+okataina,Okataina,176.501,-38.119,Green,No volcanic unrest.,0,Volcanic environment hazards.
+rotorua,Rotorua,176.281,-38.093,Green,No volcanic unrest.,0,Volcanic environment hazards.
+taranakiegmont,Taranaki/Egmont,174.061,-39.298,Green,No volcanic unrest.,0,Volcanic environment hazards.
+whiteisland,White Island,177.183,-37.521,Yellow,Moderate to heightened volcanic unrest.,2,"Volcanic unrest hazards, potential for eruption hazards."
+ruapehu,Ruapehu,175.563,-39.281,Green,Minor volcanic unrest.,1,Volcanic unrest hazards.
