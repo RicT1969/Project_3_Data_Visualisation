@@ -1,17 +1,16 @@
+# import necessary libraries
+# from models import create_classes
+import os
+
 import numpy as np
-import sqlalchemy
 
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func, or_
 from sqlalchemy.ext.automap import automap_base
 
-from flask import (
-    Flask, 
-    jsonify, 
-    request, 
-    render_template, 
-    redirect)
+from flask import Flask, jsonify, request, render_template, redirect
 
+import sqlite3
 import pickle
 
 
@@ -31,11 +30,12 @@ print(Base.classes.keys())
 
 quake = Base.classes.quake_MMI_data
 
+
+
 #################################################
 # Flask Setup
 #################################################
 app = Flask(__name__)
-
 
 #################################################
 # Flask Routes
@@ -45,7 +45,6 @@ app = Flask(__name__)
 @app.route("/")
 def main():
     return render_template("index.html")
-
 
 # ------------------------------------------------
 # API 
