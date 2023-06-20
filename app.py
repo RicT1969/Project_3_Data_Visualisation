@@ -19,16 +19,16 @@ import pickle
 #################################################
 engine = create_engine("sqlite:///quake_mmi_data.db")
 
-# reflect an existing database into a new model
-Base = automap_base()
+# # reflect an existing database into a new model
+# Base = automap_base()
 
-# reflect the tables
-Base.prepare(autoload_with=engine, reflect=True)
+# # reflect the tables
+# Base.prepare(autoload_with=engine, reflect=True)
 
-# Save reference to the table
-print(Base.classes.keys())
+# # Save reference to the table
+# print(Base.classes.keys())
 
-quake = Base.classes.quake_mmi
+# quake = Base.classes.quake_mmi_test
 
 
 
@@ -49,21 +49,50 @@ def main():
 # ------------------------------------------------
 # API 
 # ------------------------------------------------
+
 # Data table
 
-@app.route("/api/v1.0/quake_mmi")
+@app.route("/api/data")
 def quake_mmi_data():
 
-    session = Session(engine)
+    # with engine.connect as connection:
+    connection = engine.connect()
 
-    results = session.query(quake.publicID, quake.date, quake.mmi, quake.magnitude, quake.longitude, quake.latitude, quake.time, quake.depth).all()
 
-    session.close()
+    results = connection.execute('select * from quake_mmi_test')
+
+    rows = results.fetchall()
+    data = [dict(row) for row in rows]
+
+    connection.close()
+
+    return jsonify(data)
+
+    # results = [list(r) for r in results]
+
+
+
+
+
+# @app.route("/api/v1.0/quake_mmi")
+# def quake_mmi_data():
+
+#     session = Session(engine)
+
+#     results = session.query( quake.date, quake.mmi, quake.magnitude, quake.longitude, quake.latitude, quake.time, quake.depth).all()
+#     earthquake = list(np.ravel(results))
+
+    # results = [list(r) for r in results]
+
+    # earthquake = {
+    #     "table": results
+    # }
+
+    # session.close()
     # Convert list of tuples into normal list
 
-    earthquake = list(np.ravel(results))
     
-    return jsonify(earthquake)
+    # return jsonify(earthquake)
     
 
 if __name__ == '__main__':
