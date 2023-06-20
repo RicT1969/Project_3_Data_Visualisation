@@ -10,7 +10,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 // Fetch earthquake data from the database
-fetch('/earthquake') // Flask Backend URL
+fetch('/api/data') // Flask Backend URL
   .then(response => response.json())
   .then(data => {
     // Loop through the earthquake data
