@@ -3,7 +3,7 @@
 import os
 
 import numpy as np
-
+import sqlalchemy
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func, or_
 from sqlalchemy.ext.automap import automap_base
@@ -53,6 +53,7 @@ def main():
 
 @app.route("/api/v1.0/quake_MMI_data")
 def quake_MMI_data():
+
     session = Session(engine)
 
     results = session.query(quake.publicID, quake.date, quake.mmi, quake.magnitude, quake.longitude, quake.latitude, quake.time, quake.depth).all()
@@ -61,6 +62,7 @@ def quake_MMI_data():
     # Convert list of tuples into normal list
 
     earthquake = list(np.ravel(results))
+    
     return jsonify(earthquake)
     
 
