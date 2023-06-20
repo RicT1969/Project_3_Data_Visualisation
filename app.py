@@ -17,7 +17,7 @@ import pickle
 #################################################
 # Database Setup
 #################################################
-engine = create_engine("sqlite:///quake_MMI_data.db")
+engine = create_engine("sqlite:///quake_mmi.db")
 
 # reflect an existing database into a new model
 Base = automap_base()
@@ -28,7 +28,7 @@ Base.prepare(autoload_with=engine, reflect=True)
 # Save reference to the table
 print(Base.classes.keys())
 
-quake = Base.classes.quake_MMI_data
+quake = Base.classes.quake_mmi
 
 
 
@@ -51,7 +51,7 @@ def main():
 # ------------------------------------------------
 # Data table
 
-@app.route("/api/v1.0/quake_MMI_data")
+@app.route("/api/v1.0/quake_mmi")
 def quake_MMI_data():
 
     session = Session(engine)
