@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="../static\css/styling.css">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1"></script>
   </head>
 <body>
 
@@ -48,14 +48,17 @@
                 <h5 class="card-title"> Number of Quakes </h5>
                 <p class="card-text">Visualization</p>
                 <canvas id="barChart"></canvas> <!-- Add this canvas element -->
-                <script src="/static/js/BarChart.js"></script> <!-- Add the script file -->
-                <!--<label for="startDate">Start Date:</label> Filter Button
-                <input type="date" id="startDate" name="startDate">
-                <label for="endDate">End Date:</label>
-                <input type="date" id="endDate" name="endDate">
-                <button onclick="applyDateRangeFilter()">Apply Filter</button> -->
-                <!-- <input type="date" id="startDateInput" class="form-control" placeholder="Start Date"> -->
-
+                <script src="/static/js/BarChart.js"></script> <!-- Add the script file-->
+                <div class="form-group">
+                  <label for="startDate">Start Date:</label>
+                  <input type="date" id="startDate" class="form-control" placeholder="Start Date">
+                </div>
+                <div class="form-group">
+                  <label for="endDate">End Date:</label>
+                  <input type="date" id="endDate" class="form-control" placeholder="End Date">
+                </div>
+                <button onclick="updateChart()" class="btn btn-primary">Apply Filter</button>
+              
               </div>
             </div>
           </div>
