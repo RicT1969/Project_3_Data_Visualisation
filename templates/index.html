@@ -4,6 +4,8 @@
   <title>Bootstrap Webpage</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="../static\css/styling.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
 <body>
 
@@ -45,11 +47,13 @@
               <div class="card-body">
                 <h5 class="card-title"> Number of Quakes </h5>
                 <p class="card-text">Visualization</p>
+                <canvas id="barChart"></canvas> <!-- Add this canvas element -->
+                <script src="/static/js/BarChart.js"></script> <!-- Add the script file -->
               </div>
             </div>
           </div>
         </div>
-        <div class="row h-50">
+        <!-- <div class="row h-50">
           <div class="col-sm-12 quadrant">
             <div class="card">
               <div class="card-body">
@@ -58,12 +62,12 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
 
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+ 
 </body>
 </html>
 
