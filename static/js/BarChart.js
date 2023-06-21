@@ -6,9 +6,9 @@ fetch('/api/data')
   .then(response => response.json())
   .then(data => {
     // Extract labels and values from the data
-    const labels = data.map(row => row.row);
-    const values = data.map(row => row.data);
-
+    const labels = data.map(row => row.mmi);
+    const values = data.map(row => row.depth);
+    
     // Create the bar chart
     new Chart(barChartCanvas, {
       type: 'bar',
@@ -30,4 +30,6 @@ fetch('/api/data')
         }
       }
     });
+    console.log(data)
   });
+
