@@ -1,117 +1,70 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Bootstrap Webpage</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../static\css/styling.css">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <title>Bulma Webpage</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link rel="stylesheet" href="../static/css/styling.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1"></script>
-  </head>
+  <script src="/static/js/BarChart.js"></script> <!-- Add the script file -->
+</head>
 <body>
-
   <header>
-    <h1>New Zealand Earthquake Dashboard
-      <small class="text-muted">- Project 3</small>
-      
-    </h1>
+    <h1 class="title">New Zealand Earthquake Dashboard <small class="subtitle is-muted">- Project 3</small></h1>
   </header>
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <ul class="navbar-nav">
-      <!--<li class="nav-item">
-        <a class="nav-link" href="#">Link 1</a>
+  <nav class="navbar is-light">
+    <ul class="navbar-menu">
+      <!--<li class="navbar-item">
+        <a class="navbar-link" href="#">Link 1</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link 2</a>
+      <li class="navbar-item">
+        <a class="navbar-link" href="#">Link 2</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link 3</a>
+      <li class="navbar-item">
+        <a class="navbar-link" href="#">Link 3</a>
       </li> -->
     </ul>
   </nav>
 
-  <div class="container-fluid h-100">
-    <div class="row h-100">
-      <div class="col-sm-12 col-md-6 quadrant">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-half">
         <div class="card">
-          <div class="card-body">
-            <h5 class="card-title"> Locations </h5>
-            <p class="card-text">Map</p>
+          <div class="card-content">
+            <h5 class="title is-5">Locations</h5>
+            <p class="content">Map</p>
           </div>
         </div>
       </div>
-      <div class="col-sm-12 col-md-6 quadrant">
-        <div class="row h-50">
-          <div class="col-sm-12 quadrant">
+      <div class="column is-half">
+        <div class="columns">
+          <div class="column">
             <div class="card">
-              <div class="card-body">
-                <h5 class="card-title"> Number of Quakes </h5>
-                <p class="card-text">Visualization</p>
-                <canvas id="barChart"></canvas> <!-- Add this canvas element -->
-                <script src="/static/js/BarChart.js"></script> <!-- Add the script file-->
-                <div class="form-group">
-                  <label for="startDate">Start Date:</label>
-                  <input type="date" id="startDate" class="form-control" placeholder="Start Date">
+              <div class="card-content">
+                <h5 class="title is-5">Quakes by Magnitude and locality over time</h5>
+                <p class="content">Visualization</p>
+                <div>
+                  <canvas id="barChartCanvas"></canvas>
+                  <div class="field">
+                    <label class="label" for="startDate">Start Date:</label>
+                    <div class="control">
+                      <input type="date" id="startDate" class="input" placeholder="Start Date">                         
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label class="label" for="endDate">End Date:</label>
+                    <div class="control">
+                      <input type="date" id="endDate" class="input" placeholder="End Date">
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="control">
+                      <button id="filterButton" class="button is-primary">Apply Filter</button>
+                    </div>
+                  </div>
                 </div>
-                <div class="form-group">
-                  <label for="endDate">End Date:</label>
-                  <input type="date" id="endDate" class="form-control" placeholder="End Date">
-                </div>
-                <button onclick="updateChart()" class="btn btn-primary">Apply Filter</button>
-              
               </div>
             </div>
           </div>
-        </div>
         <!-- <div class="row h-50">
           <div class="col-sm-12 quadrant">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title"> Earthquake Summary </h5>
-                <p class="card-text">Visualization</p>
-              </div>
-            </div>
-          </div>
-        </div> -->
-      </div>
-    </div>
-  </div>
-
- 
-</body>
-</html>
-
-
-
-<!--<!DOCTYPE html>  implementing flask
-<html>
-<head>
-  <title>Your Web App</title>
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script src="main.js"></script>
-</head>
-<body>
-  <h1>Your Web App</h1>
-  <div id="data-container"></div>
-
-  <script>
-    // Fetch data from Flask endpoint
-    axios.get('/data')
-      .then(response => {
-        const data = response.data;
-
-        // Use the data to populate your web app
-        const container = document.getElementById('data-container');
-        data.forEach(item => {
-          const row = document.createElement('div');
-          row.textContent = item;
-          container.appendChild(row);
-        });
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      });
-  </script>
-</body>
-</html> -->
-
