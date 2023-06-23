@@ -44,7 +44,15 @@ app = Flask(__name__)
 
 @app.route("/")
 def main():
-    return render_template("index.html")
+    return render_template("indexCopy.html")
+
+@app.route("/bar-chart")
+def bar_chart():
+    return render_template("BarChartTab.html")
+
+@app.route("/map-tab")
+def map_tab():
+    return render_template("MapTab.html")
 
 # ------------------------------------------------
 # API 

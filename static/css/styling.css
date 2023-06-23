@@ -16,9 +16,13 @@ header, .small {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
+title {
+   color: coral;
+}
+
 .quadrant {
    flex: 1;
-   padding: 20px;
+   padding: 100px;
    transition: transform 0.2s ease;
 
 }
@@ -34,6 +38,5 @@ header, .small {
 .quadrant:hover {
    transform: translate(5px, 5px);
 }
-
 
   
