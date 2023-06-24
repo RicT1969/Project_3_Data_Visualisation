@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Line Chart Example</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link rel="stylesheet" href="../static/css/styling.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1"></script>
+  <script src="/static/js/LineChart.js"></script> <!-- Add the script file -->
+</head>
+<body>
+  <header>
+    <h1 class="title">Line Chart Example</h1>
+  </header>
+
+  <nav class="navbar is-light">
+    <ul class="navbar-menu">
+      <li class="navbar-item">
+        <a class="navbar-link" href="/map-tab">Map View</a>
+      </li>
+      <li class="navbar-item">
+        <a class="navbar-link" href="/bar-chart">Bar Chart</a>
+      </li>
+      <li class="navbar-item">
+        <a class="navbar-link" href="/line-chart">Line Chart</a>
+      </li> 
+    </ul>
+  </nav>
+
+  <div class="container">
+    <div class="column is-centered is-vcentered">
+        <div>
+            <div class="card">
+                <div class="card-content">
+                <h5 class="title is-5">Quakes by Magnitude and Locality over Time</h5>
+                <div>
+                    <canvas id="lineChartCanvas"></canvas>
+                    <div class="field">
+                    <label class="label" for="startDate">Start Date:</label>
+                    <div class="control">
+                        <input type="date" id="startDate" class="input" placeholder="Start Date">                         
+                    </div>
+                    </div>
+                    <div class="field">
+                    <label class="label" for="endDate">End Date:</label>
+                    <div class="control">
+                        <input type="date" id="endDate" class="input" placeholder="End Date">
+                    </div>
+                    </div>
+                    <div class="field">
+                    <div class="control">
+                        <button id="filterButton" class="button is-primary">Apply Filter</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</body>
+</html>
+
+
+

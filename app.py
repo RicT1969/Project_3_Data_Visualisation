@@ -54,6 +54,10 @@ def bar_chart():
 def map_tab():
     return render_template("MapTab.html")
 
+@app.route("/line-chart")
+def line_chart():
+    return render_template("LineChart.html")
+
 # ------------------------------------------------
 # API 
 # ------------------------------------------------
