@@ -5,6 +5,7 @@ import os
 import numpy as np
 import sqlalchemy
 from sqlalchemy.orm import Session
+from sqlalchemy import text
 from sqlalchemy import create_engine, func, or_
 from sqlalchemy.ext.automap import automap_base
 
@@ -70,7 +71,6 @@ def quake_mmi_data():
     # with engine.connect as connection:
     connection = engine.connect()
 
-
     results = connection.execute('select * from quake_mmi_test')
 
     rows = results.fetchall()
@@ -82,8 +82,28 @@ def quake_mmi_data():
 
     # results = [list(r) for r in results]
 
+# Set up API report data aggregated as report/dropdown
 
+@app.route('/api/report/dropdown')
+def dropdown():
 
+  # with engine.connect as connection:
+    connection = engine.connect()
+    
+    publicID = request.args.get('publicID')
+    if publicID is None:
+        publicID = '2023p452421'
+        result = connection.execute(text("Select publicID, latitude, longitude, magnitude from quake_mmi_test"))
+        data = result.fetchall()
+        data_dict = []
+        for row in data:
+            data_dict.append({
+                'latitude': row.latitude,
+                'longitude': row.longitude,
+                'magnitude': row.magnitude
+                })
+        connection.close()
+        return jsonify(data_dict)
 
 
 # @app.route("/api/v1.0/quake_mmi")

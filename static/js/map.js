@@ -6,7 +6,7 @@ function getMarkerRadius(magnitude) {
   return Math.sqrt(magnitude) * scalingFactor;
 }
 
-// Define a function to determine the color based on MMI
+// Define a function to determine the color based on mmi
 function getColor(mmi) {
   if (mmi >= 7) {
     return '#ff0000'; // Red
@@ -22,7 +22,7 @@ function getColor(mmi) {
 }
 
 // Create a map instance and set its view to New Zealand
-const map = L.map('map').setView([-41.2865, 174.7762], 10);
+const map = L.map('map').setView([-41.2865, 174.7762], 5);
 
 // Add a tile layer to the map using OpenStreetMap
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -64,6 +64,17 @@ fetch('/api/data') // Flask Backend URL
         // Calculate circle radius based on magnitude using the getMarkerRadius function
         const radius = getMarkerRadius(magnitude);
 
+        // Format the magnitude and depth with two decimal places
+        const formattedMagnitude = magnitude.toFixed(2);
+        const formattedDepth = depth.toFixed(2);
+
+        // Format the date as dd/mm/yyyy
+        const formattedDate = new Date(date).toLocaleDateString('en-GB', {
+          day: '2-digit',
+          month: '2-digit',
+          year: 'numeric'
+        });
+
         // Create a circle marker at the earthquake's location
         const marker = L.circleMarker([latitude, longitude], {
           radius: radius,
@@ -77,11 +88,20 @@ fetch('/api/data') // Flask Backend URL
         // Add a popup to the marker displaying the earthquake's details
         marker.bindPopup(`
           <h3>${locality}</h3>
-          Date: ${date}<br>
+          Date: ${formattedDate}<br>
           MMI: ${mmi}<br>
-          Magnitude: ${magnitude}<br>
-          Depth: ${depth}
+          Magnitude: ${formattedMagnitude}<br>
+          Depth: ${formattedDepth}
         `);
+
+        // Print the details to the console
+        console.log('Earthquake Details:');
+        console.log('Locality:', locality);
+        console.log('Date:', formattedDate);
+        console.log('MMI:', mmi);
+        console.log('Magnitude:', formattedMagnitude);
+        console.log('Depth:', formattedDepth);
+        console.log('-----------------------------');
       });
     } else {
       console.error('Error: Invalid data format. Expected an array.');
@@ -90,119 +110,3 @@ fetch('/api/data') // Flask Backend URL
   .catch(error => {
     console.error('Error:', error);
   });
-
-// Manual earthquake data
-const manualData = [
-  {
-    "date": "2023-06-17 00:00:00",
-    "depth": 22.44568825,
-    "index": 0,
-    "latitude": -42.02975845,
-    "locality": "40 km north of Kaikoura",
-    "longitude": 173.735199,
-    "magnitude": 1.780997494,
-    "mmi": -1,
-    "publicID": "2023p452421",
-    "time": "2023-06-17 09:30:18.746000+00:00"
-  },
-  {
-    "date": "2023-06-17 00:00:00",
-    "depth": 26.99663353,
-    "index": 1,
-    "latitude": -40.40055466,
-    "locality": "20 km east of Palmerston North",
-    "longitude": 175.8822479,
-    "magnitude": 3.021375756,
-    "mmi": 3,
-    "publicID": "2023p452386",
-    "time": "2023-06-17 09:11:40.087000+00:00"
-  },
-  {
-    "date": "2023-06-17 00:00:00",
-    "depth": 24.72915649,
-    "index": 2,
-    "latitude": -40.39117813,
-    "locality": "20 km east of Palmerston North",
-    "longitude": 175.8869019,
-    "magnitude": 2.93598542,
-    "mmi": 3,
-    "publicID": "2023p452375",
-    "time": "2023-06-17 09:05:50.271000+00:00"
-  },
-  {
-    "date": "2023-06-17 00:00:00",
-    "depth": 24.88100243,
-    "index": 3,
-    "latitude": -39.65148926,
-    "locality": "35 km east of Taihape",
-    "longitude": 176.2091217,
-    "magnitude": 0.386625535,
-    "mmi": -1,
-    "publicID": "2023p452356",
-    "time": "2023-06-17 08:55:28.053000+00:00"
-  },
-  {
-    "date": "2023-06-17 00:00:00",
-    "depth": 28.45860291,
-    "index": 4,
-    "latitude": -39.22940063,
-    "locality": "45 km east of Stratford",
-    "longitude": 174.8218079,
-    "magnitude": 2.143574257,
-    "mmi": -1,
-    "publicID": "2023p452338",
-    "time": "2023-06-17 08:45:50.111000+00:00"
-  },
-  {
-    "date": "2023-06-17 00:00:00",
-    "depth": 12.8352375,
-    "index": 5,
-    "latitude": -42.44569778,
-    "locality": "5 km south-east of Kaikoura",
-    "longitude": 173.7214508,
-    "magnitude": 2.085746448,
-    "mmi": 3,
-    "publicID": "2023p452303",
-    "time": "2023-06-17 08:27:23.995000+00:00"
-  },
-  {
-    "date": "2023-06-17 00:00:00",
-    "depth": 16.82185936,
-    "index": 6,
-    "latitude": -40.4851799,
-    "locality": "10 km north-east of Pongaroa",
-    "longitude": 176.2889252,
-    "magnitude": 1.542165435,
-    "mmi": -1,
-    "publicID": "2023p452270",
-    "time": "2023-06-17 08:09:56.145000+00:00"
-  }
-];
-
-// Loop through the manual data
-manualData.forEach(earthquake => {
-  // Extract latitude, longitude, depth, magnitude, MMI, and locality from each earthquake
-  const { latitude, longitude, depth, magnitude, mmi, locality, date } = earthquake;
-
-  // Calculate circle radius based on magnitude using the getMarkerRadius function
-  const radius = getMarkerRadius(magnitude);
-
-  // Create a circle marker at the earthquake's location
-  const marker = L.circleMarker([latitude, longitude], {
-    radius: radius,
-    fillColor: getColor(mmi),
-    color: '#000',
-    weight: 1,
-    opacity: 1,
-    fillOpacity: 0.8
-  }).addTo(map);
-
-  // Add a popup to the marker displaying the earthquake's details
-  marker.bindPopup(`
-    <h3>${locality}</h3>
-    Date: ${date}<br>
-    MMI: ${mmi}<br>
-    Magnitude: ${magnitude}<br>
-    Depth: ${depth}
-  `);
-});
