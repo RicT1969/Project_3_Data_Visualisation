@@ -86,22 +86,25 @@ def quake_mmi_data():
 
 @app.route('/api/report/dropdown')
 def dropdown():
-
-  # with engine.connect as connection:
     connection = engine.connect()
     
     publicID = request.args.get('publicID')
+    
     if publicID is None:
         publicID = '2023p452421'
-        result = connection.execute(text("Select publicID, latitude, longitude, magnitude from quake_mmi_test"))
-        data = result.fetchall()
+        results = connection.execute(text("SELECT date, locality, mmi, magnitude, depth FROM quake_mmi_test"))
+        data = results.fetchall()
         data_dict = []
+        
         for row in data:
             data_dict.append({
-                'latitude': row.latitude,
-                'longitude': row.longitude,
-                'magnitude': row.magnitude
-                })
+                'date': row.date,
+                'locality': row.locality,
+                'mmi': row.mmi,
+                'magnitude': row.magnitude,
+                'depth': row.depth
+            })
+        
         connection.close()
         return jsonify(data_dict)
 

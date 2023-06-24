@@ -1,42 +1,37 @@
-    html, body {
-    height: 100%;
-    padding-bottom: 55px;
-  }
-
-.card {
-    height: 100%;
-}
-
-header, .small {
-    color: coral;
-    text-align: center;
-    background-image: url('https://www.worldatlas.com/r/w1200/upload/b0/01/fe/shutterstock-195655559.jpg');
-    height: 100px;
-    padding: 25px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-title {
+html, body {
+   height: 100%;
+   padding-bottom: 55px;
+ }
+ 
+ .card {
+   height: 100%;
+ }
+ 
+ header, .small {
    color: coral;
-}
-
-.quadrant {
+   text-align: center;
+   background-image: url('https://www.worldatlas.com/r/w1200/upload/b0/01/fe/shutterstock-195655559.jpg');
+   height: 100px;
+   padding: 25px;
+   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+   font-weight: bold; /* Added font-weight: bold */
+ }
+ 
+ .quadrant {
    flex: 1;
    padding: 100px;
    transition: transform 0.2s ease;
-
-}
-
-.card {
+ }
+ 
+ .card {
    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.row {
+ }
+ 
+ .row {
    display: flex;
-}
-
-.quadrant:hover {
+ }
+ 
+ .quadrant:hover {
    transform: translate(5px, 5px);
-}
-
-  
+ }
+ 

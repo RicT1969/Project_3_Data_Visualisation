@@ -1,83 +1,17 @@
-// Helper function to format the date as "dd/mm/yyyy"
-function formatDate(date) {
-  const parsedDate = new Date(date);
-  const day = parsedDate.getDate();
-  const month = parsedDate.getMonth() + 1;
-  const year = parsedDate.getFullYear();
-  return `${day}/${month}/${year}`;
-}
+let manualData =[{"date":"2023-06-17 00:00:00","depth":22.44568825,"index":0,"latitude":-42.02975845,"locality":"40 km north of Kaikoura","longitude":173.735199,"magnitude":1.780997494,"mmi":-1,"publicID":"2023p452421","time":"2023-06-17 09:30:18.746000+00:00"},{"date":"2023-06-17 00:00:00","depth":26.99663353,"index":1,"latitude":-40.40055466,"locality":"20 km east of Palmerston North","longitude":175.8822479,"magnitude":3.021375756,"mmi":3,"publicID":"2023p452386","time":"2023-06-17 09:11:40.087000+00:00"},{"date":"2023-06-17 00:00:00","depth":24.72915649,"index":2,"latitude":-40.39117813,"locality":"20 km east of Palmerston North","longitude":175.8869019,"magnitude":2.93598542,"mmi":3,"publicID":"2023p452375","time":"2023-06-17 09:05:50.271000+00:00"}]
 
-// Helper function to format decimal numbers with specified decimal places
-function formatDecimal(number, decimalPlaces) {
-  const factor = 10 ** decimalPlaces;
-  const roundedNumber = Math.round(number * factor) / factor;
-  return roundedNumber.toFixed(decimalPlaces);
-}
-
-
-// Fetch earthquake data from the database
-function updateTable() {
-  // Calculate the start date as the current date minus 100 days
-  const today = new Date();
-  const startDate = new Date(today.getTime() - (360 * 24 * 60 * 60 * 1000)).toISOString().split('T')[0];
-
-  // Set the end date as the current date
-  const endDate = today.toISOString().split('T')[0];
-
-  const url = `/api/data?start=${startDate}&end=${endDate}`; // Replace with your API endpoint for filtered data
-
-  fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      // Get the table body element
-      const tbody = document.querySelector('#earthquakeTable tbody');
-
-      // Clear any existing rows
-      tbody.innerHTML = '';
-
-      // Check if the data is an array
-      if (Array.isArray(data)) {
-        // Limit the data to 10 rows
-        const limitedData = data.slice(0, 10);
-
-        limitedData.forEach(earthquake => {
-          const { date, locality, mmi, magnitude, depth } = earthquake;
-
-          // Create a new row
-          const row = document.createElement('tr');
-
-          // Create cells for each data field
-          const dateCell = document.createElement('td');
-          const formattedDate = formatDate(date);
-          dateCell.textContent = formattedDate;
-          row.appendChild(dateCell);
-
-          const localityCell = document.createElement('td');
-          localityCell.textContent = locality;
-          row.appendChild(localityCell);
-
-          const mmiCell = document.createElement('td');
-          mmiCell.textContent = mmi;
-          row.appendChild(mmiCell);
-
-          const magnitudeCell = document.createElement('td');
-          const formattedMagnitude = formatDecimal(magnitude, 2);
-          magnitudeCell.textContent = formattedMagnitude;
-          row.appendChild(magnitudeCell);
-
-          const depthCell = document.createElement('td');
-          const formattedDepth = formatDecimal(depth, 2);
-          depthCell.textContent = formattedDepth;
-          row.appendChild(depthCell);
-
-          tbody.appendChild(row);
-        });
-      } else {
-        console.error('Error: Invalid data format. Expected an array.');
-      }
-    })
-    .catch(error => {
-      console.error('Error:', error);
-    });
-}
-
+app.get("/api/api/report/dropdown", function (req, res) {
+  const url = 'https://jsonplaceholder.typicode.com/todos';
+  // Make a request
+    axios.get(url)
+      .then(response => {
+        // send the collected data back to the client-side DataTable
+        res.json({
+          "data": response.data
+        })
+      })
+      .catch(function (error) {
+         // handle error
+         res.json({"error": error});
+      })
+  });

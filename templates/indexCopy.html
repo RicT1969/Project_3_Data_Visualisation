@@ -25,6 +25,20 @@
       integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
       crossorigin=""></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.1/css/dataTables.bootstrap5.min.css">
+    <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" language="javascript" 
+      src="https://cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.11.1/js/dataTables.bootstrap5.min.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet" >
+    <link href="css/dataTables.bootstrap5.min.css" rel="stylesheet" >
+    <!-- Bootstrap core JavaScript--> 
+    <script src="js/jquery-3.5.1.js"></script> 
+    <!-- Page level plugin JavaScript-->
+    <link rel="stylesheet" type="text/css" href="js/datatables.min.css"/>
+    <script type="text/javascript" src="js/datatables.min.js"></script> 
   </head>
   <body>
   <header>
@@ -59,39 +73,11 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Earthquake Details</h5>
-            <div class="row">
-              <div class="col">
-                <div class="form-group">
-                  <label for="startDate">Start Date:</label>
-                  <input type="date" id="startDate" class="form-control" placeholder="Start Date">
-                </div>
-              </div>
-              <div class="col">
-                <div class="form-group">
-                  <label for="endDate">End Date:</label>
-                  <input type="date" id="endDate" class="form-control" placeholder="End Date">
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="mmiFilter">MMI Filter:</label>
-              <select id="mmiFilter" class="form-control">
-                <option value="">All</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <!-- Add more options as needed -->
-              </select>
-            </div>
-            <div class="form-group">
-              <button onclick="updateTable()" class="btn btn-primary">Apply Filter</button>
-            </div>
-            <!-- <p class="card-text">Visualization</p> -->
             <table id="earthquakeTable" class="table">
               <thead>
                 <tr>
-                  <th>Date</th>
                   <th>Locality</th>
+                  <th>Date</th>
                   <th>MMI</th>
                   <th>Magnitude</th>
                   <th>Depth</th>
@@ -108,7 +94,8 @@
     </div>
   </div>
 
-  <script src="../static/js/map.js"></script> <!-- Include your map.js file here -->
+  <script src="../static/js/map.js"></script> 
+  <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 
 </body>
 </html>

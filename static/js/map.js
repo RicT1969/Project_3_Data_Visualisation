@@ -6,23 +6,21 @@ function getMarkerRadius(magnitude) {
   return Math.sqrt(magnitude) * scalingFactor;
 }
 
-// Define a function to determine the color based on mmi
+// Define a function to determine the color based on MMI
 function getColor(mmi) {
-  if (mmi >= 7) {
-    return '#ff0000'; // Red
+  if (mmi >= 6) {
+    return 'darkred';
   } else if (mmi >= 5) {
-    return '#ff8800'; // Orange
-  } else if (mmi >= 3) {
-    return '#ffff00'; // Yellow
-  } else if (mmi >= 1) {
-    return '#00ff00'; // Green
-  } else {
-    return '#0000ff'; // Blue
+    return 'orange';
+  } else if (mmi >= 2 && mmi <= 4) {
+    return '#ffff99'; // Pale yellow color
+  } else if (mmi <= 1) {
+    return 'darkgreen';
   }
 }
 
 // Create a map instance and set its view to New Zealand
-const map = L.map('map').setView([-41.2865, 174.7762], 5);
+const map = L.map('map').setView([-41.2865, 173.2444], 6);
 
 // Add a tile layer to the map using OpenStreetMap
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -36,28 +34,8 @@ fetch('/api/data') // Flask Backend URL
     console.log(data);
     // Check if the data is an array
     if (Array.isArray(data)) {
-      // Filter earthquakes based on MMI and date range
-      const filteredData = data.filter(earthquake => {
-        const mmiFilter = document.getElementById('mmiFilter').value;
-        const startDate = document.getElementById('startDate').value;
-        const endDate = document.getElementById('endDate').value;
-
-        return (
-          (mmiFilter === 'all' || earthquake.mmi.toString() === mmiFilter) &&
-          (!startDate || earthquake.date >= startDate) &&
-          (!endDate || earthquake.date <= endDate)
-        );
-      });
-
-      // Clear existing markers from the map
-      map.eachLayer(layer => {
-        if (layer instanceof L.CircleMarker) {
-          map.removeLayer(layer);
-        }
-      });
-
-      // Loop through the filtered earthquake data
-      filteredData.forEach(earthquake => {
+      // Loop through the earthquake data
+      data.forEach(earthquake => {
         // Extract latitude, longitude, depth, magnitude, MMI, and locality from each earthquake
         const { latitude, longitude, depth, magnitude, mmi, locality, date } = earthquake;
 
@@ -79,10 +57,10 @@ fetch('/api/data') // Flask Backend URL
         const marker = L.circleMarker([latitude, longitude], {
           radius: radius,
           fillColor: getColor(mmi),
-          color: '#000',
+          color: 'black', // Set the outline color to match the fill color
           weight: 1,
           opacity: 1,
-          fillOpacity: 0.8
+          fillOpacity: 0.75
         }).addTo(map);
 
         // Add a popup to the marker displaying the earthquake's details
@@ -93,6 +71,16 @@ fetch('/api/data') // Flask Backend URL
           Magnitude: ${formattedMagnitude}<br>
           Depth: ${formattedDepth}
         `);
+
+        // Show the popup when hovering over the marker
+        marker.on('mouseover', function (e) {
+          this.openPopup();
+        });
+
+        // Hide the popup when moving the mouse out of the marker
+        marker.on('mouseout', function (e) {
+          this.closePopup();
+        });
 
         // Print the details to the console
         console.log('Earthquake Details:');
