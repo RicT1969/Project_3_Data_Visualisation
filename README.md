@@ -37,7 +37,7 @@ Explore the interactive map to see the earthquake data visualized with markers r
 
 - JavaScript
 - Leaflet.js
-- D3.js
+- Jupiter Notebook
 - HTML
 - CSS
 
