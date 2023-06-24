@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap Webpage</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/styling.css">
+    <style>
+      #map {
+        height: 100%;
+      }
+      .dashboard-header {
+        font-size: 36px;
+      }
+    </style>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1"></script>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+      integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+      crossorigin="" />
+    <!-- D3.js -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- Leaflet JavaScript code -->
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+      integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+      crossorigin=""></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  </head>
+  <body>
+  <header>
+    <h1 class="title">New Zealand Earthquake Dashboard <small class="subtitle is-muted">- Project 3</small></h1>
+  </header>
+
+  <nav class="navbar is-light">
+    <ul class="navbar-menu">
+      <li class="navbar-item">
+        <a class="navbar-link" href="indexCopy.html">Map View</a>
+      </li>
+      <li class="navbar-item">
+        <a class="navbar-link" href="/bar-chart">Bar Chart</a>
+      </li>
+      <li class="navbar-item">
+        <a class="navbar-link" href="#">Link 3</a>
+      </li> 
+    </ul>
+  </nav>
+
+  <div class="container-fluid h-100">
+    <div class="row h-100">
+      <div class="col-sm-12 col-md-6 quadrant">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Locations</h5>
+            <div id="map"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 quadrant">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Earthquake Details</h5>
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="startDate">Start Date:</label>
+                  <input type="date" id="startDate" class="form-control" placeholder="Start Date">
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="endDate">End Date:</label>
+                  <input type="date" id="endDate" class="form-control" placeholder="End Date">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="mmiFilter">MMI Filter:</label>
+              <select id="mmiFilter" class="form-control">
+                <option value="">All</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <!-- Add more options as needed -->
+              </select>
+            </div>
+            <div class="form-group">
+              <button onclick="updateTable()" class="btn btn-primary">Apply Filter</button>
+            </div>
+            <!-- <p class="card-text">Visualization</p> -->
+            <table id="earthquakeTable" class="table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Locality</th>
+                  <th>MMI</th>
+                  <th>Magnitude</th>
+                  <th>Depth</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Table contents go here -->
+              </tbody>
+            </table>
+            <script src="/static/js/table.js"></script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../static/js/map.js"></script> <!-- Include your map.js file here -->
+
+</body>
+</html>
