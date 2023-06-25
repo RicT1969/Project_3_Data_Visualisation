@@ -1,3 +1,5 @@
+table:
+
 // Fetch earthquake data from the database
 fetch('/api/data') // Flask Backend URL
   .then(response => response.json())
