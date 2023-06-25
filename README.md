@@ -10,7 +10,7 @@
 An interactive web-based map to visualize earthquake data in New Zealand collected by the GeoNet, highlighting the risk between occurence.
 
 ## Background
-An application has been developed with the purpose of visualizing earthquake data from the past 365 days in New Zealand. The data utilized for this application was sourced from Geonet, an initiative established in 2001 to construct and operate a contemporary geological hazard monitoring system in New Zealand. Geonet effectively tracks and records approximately 20,000 earthquakes annually within and surrounding the nation, of which the majority are of small magnitude, while approximately 250 events are significant enough to be perceptible. To access earthquake statistics for the New Zealand region based on observations since 1960, the Earthquake Statistics page is available, while the GeoNet Quake Statistics page provides information on earthquake occurrences within the past year. 
+An application has been developed with the purpose of visualizing earthquake data from the past 365 days in New Zealand. The data utilized for this application is sourced from Geonet, an initiative established in 2001 to construct and operate a contemporary geological hazard monitoring system in New Zealand. Geonet effectively tracks and records approximately 20,000 earthquakes annually within and surrounding the nation, of which the majority are of small magnitude, while approximately 250 events are significant enough to be perceptible. To access earthquake statistics for the New Zealand region based on observations since 1960, the Earthquake Statistics page is available, while the GeoNet Quake Statistics page provides information on earthquake occurrences within the past year. 
 The primary objective behind developing this application is to provide a straightforward and expeditious visualization of recent seismic activity in various locations, thereby facilitating public comprehension of the associated risks and frequency of such events.
 
 ## Features
@@ -35,11 +35,107 @@ Explore the interactive map to see the earthquake data visualized with markers r
 
 ## Built With
 
-- JavaScript
+- JavaScript (including Chart.js as additional library,)
 - Leaflet.js
 - Jupiter Notebook
 - HTML
 - CSS
+- Python (using Flask and SQLAlchemy)
+- SQLite
 
+<p><h2>Technical notes</h2></p>
 
- 
+<p><h3>API and data cleaning using Pandas</h3></p>
+
+<p>Python used to retrieve earthquake data from different APIs based on different MMI levels, process the JSON data, and perform data cleaning and transformation to create a final DataFrame named "quake_mmi_df" containing cleaned earthquake data with relevant columns. Libraries and modules used include: libraries and modules, including pandas, urlopen from urllib.request, numpy, os, and csv.</p>
+
+<p>In summary:</p><ul>
+  
+<li>Owing to limits on the amount of data pulled in one call, multiple URLs were defined for different levels of MMI (Modified Mercalli Intensity).</li>
+
+<li>Once called and stored, the JSON data normalised using pd.json_normalize to create separate DataFrames for each MMI level (MMI2_df, MMI3_df, MMI4_df, MMI5_df, MMI6_df, MMI7_df).</li>
+
+<li>The separate DataFrames concatenated into a single DataFrame named "MMI_union_df" using pd.concat.</li
+                                                                                                        
+<li>The columns in MMI_union are renamed using amapping directory, and a new "date" column created in "MMI_union_df" by extracting the date from the "time" column and formatting it as '%Y-%m-%d' using pd.to_datetime and dt.strftime.</li>
+
+<li>The desired columns from "MMI_union_df" are selected to create a new DataFrame named "MMI_new_clean_df." From this a final DataFrame is created called "quake_mmi_df". Additional operations performed: resetting the index and dropping duplicates.</li></ul>
+
+<p><h3>Flask Application</h3></p>
+
+<p>Python code is used to build a Flask application that serves as a web server for earthquake data visualization.</p>
+<p>In summary:</p><ul>
+  
+<li><b>Libraries and Imports</b></li><ul>  
+Libraries and modules imported, including Flask, SQLAlchemy, SQLite3 and Pickle along with other dependencies.</li></ul>
+
+<li><b>Database Setup</b></li><ul>  
+<li>Code creates an engine to connect to an SQLite database named "quake_mmi_data.db". The database connection is established.</li></ul>
+
+<li><b>Flask Routes</b></li><ul>  
+<li>The Flask application is created with several routes defined for different HTML templates. These routes handle requests for the main page, bar chart page, map tab page, and line chart page. The corresponding HTML templates are rendered and returned to the client.</li></ul>
+
+<li><b>API Routes</b></li><ul>  
+<li>API routes are defined to retrieve earthquake data from the database. The "/api/data" route fetches all the data from the "quake_mmi_test" table in the database and returns it as JSON. The "/api/report/dropdown" route retrieves aggregated report data based on a specified publicID parameter, or a default publicID if not provided.</li></ul>
+
+<li><b>Running the Application</b></li><ul>
+<li>The application is run when the script is executed directly (not imported as a module). The application runs in debug mode, which provides detailed error messages for debugging purposes.</li></ul></ul>
+
+<p><h3>Interactive Map</h3></p>
+<p>JavaScript code creates an interactive map displaying earthquake data by location. The map is buiit using the Leaflet library and retrieves earthquake data from a Flask backend API.</p>
+<p>In summary:<p><ul>
+
+<li><b>Marker Radius Calculation:</b></li><ul>
+<li>getMarkerRadius function calculates marker radius based on the magnitude of the earthquake. It uses a linear scaling function, adjusting the scaling factor as needed.</li></ul>
+
+<li><b>Color Determination</b></li><ul>
+<li>The getColor function determines the color of the marker based on the MMI (Modified Mercalli Intensity) of the earthquake. It assigns different colors based on thresholds.</li></ul>
+
+<li><b>Map Initialization</b></li>
+A map instance created using Leaflet and set to view New Zealand. The map is displayed on an HTML element with the ID "map" and the tile layer is sourced from OpenStreetMap.</li>
+<li><b>Fetching Earthquake Data</b></li><ul>
+<li>The earthquake data is fetched from the backend API endpoint "/api/data" and the response converted to JSON format.</li></ul>
+
+<li><b>Data Processing and Marker Creation</b></li><ul>
+  
+<li>Earthquake data is processed in a series of steps. Each earthquake's latitude, longitude, depth, magnitude, MMI, locality and date are extracted. The marker's radius is calculated using the getMarkerRadius function.</li></ul>
+
+<li><b>Popup and Event Handling</b></li><ul>
+  
+<li>Popup added to each marker, displaying the earthquake's metadats (locality, date, MMI, magnitude, and depth). Event listeners show and hide the popup when hovering over or moving the mouse out of the marker.</li></ul>
+
+<li><b>Error Handling</b></li><ul>
+<li>Error handling implemented to catch errors during the data fetching and processing stages.</li></ul></ul>
+
+<p><h3>Bar Chart</h3></p>
+
+<p>JavaScript code creates a bar chart using Chart.js library and fetching data from the Flask backend API. The chart is designed to display earthquake magnitude data over time.</p><p> In summary:</p><ul>
+
+<li><b>Chart Initialization</b></li><ul>
+The code waits for the DOM content to load before executing ensuring that the necessary HTML elements are available for manipulation. Variables are initialised for the chart canvas element (barChartCanvas), the chart instance (myChart) and the original data (originalData).</li></ul>
+<li><b>Data Fetching</b></li><ul><li>
+Data is fetched from the backend API endpoint "/api/data" and converted to JSON format.</li></ul>
+<li><b>Data Processing and Chart Creation</b></li><ul><li>
+The original data is stored for reference. Labels and values are extracted from the data, representing the locality and magnitude of earthquakes. A bar chart is created using the Chart.js library, and assigned to the myChart variable. The chart is configured with labels, datasets, and styling options.</li></ul>
+<li><b>Event Handling</b></li><ul><li>
+An event listener is set on a button element with the ID "filterButton". When the button is clicked, the updateChart function is called.</li></ul>
+<li><b>Chart Updating</b></li><ul><li>
+The updateChart function is responsible for updating the chart based on the selected date range. It retrieves the start and end dates from HTML input elements. The original data is filtered based on the selected date range, resulting in the filteredData array. Labels and values are extracted from the filtered data. The chart's labels and data are updated accordingly using the myChart instance, and the chart is visually updated using the update method.</li></ul>
+<li><b>Error Handling</b></li><ul><li>
+Error handling is implemented as described above for the map</li></ul></ul>
+
+<p><h3>HTML Code</h3></p>
+<p>The HTML code builds the webpage for the New Zealand Earthquake Dashboard, focusing on the structure and layout of the dashboard page.</p>
+<p>In summary:</p><ul>
+<li>The code uses the Bulma CSS framework and the Chart.js library.</li>
+<li>References a custom CSS file for additional styling and the requisite JavaScript files for additional functionality.</li>
+<li>The page structure consists of a header, navigation bar, and content sections:</li>
+<li>The header contains the title of the dashboard.</li>
+<li>The navigation bar includes links for "Map View," "Bar Chart," and "Line Chart."</li>
+<li>For the map chart, The content is divided into two columns using the Bulma grid system.</li>
+<li>The left column contains a card with the title "Locations" and a placeholder content for a map.
+The right column contains a card with the title "Quakes by Magnitude and locality over time" and a placeholder content for a visualization.</li>
+<li>Within the visualization card, there is a canvas element with the id "barChartCanvas" for rendering the bar chart. This relates to the second page.</li>
+<li>Date input fields labeled "Start Date" and "End Date" are provided for data filtering and a 
+A button with the id "filterButton" is available to apply the filter.</li></ul></ol>
+
