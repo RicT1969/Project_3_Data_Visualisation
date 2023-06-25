@@ -71,7 +71,7 @@ def quake_mmi_data():
     # with engine.connect as connection:
     connection = engine.connect()
 
-    results = connection.execute('select * from quake_mmi_test')
+    results = connection.execute('select * from quake_mmi')
 
     rows = results.fetchall()
     data = [dict(row) for row in rows]
@@ -92,7 +92,7 @@ def dropdown():
     
     if publicID is None:
         publicID = '2023p452421'
-        results = connection.execute(text("SELECT date, locality, mmi, magnitude, depth FROM quake_mmi_test"))
+        results = connection.execute(text("SELECT date, locality, mmi, magnitude, depth FROM quake_mmi"))
         data = results.fetchall()
         data_dict = []
         

@@ -65,11 +65,11 @@ fetch('/api/data') // Flask Backend URL
 
         // Add a popup to the marker displaying the earthquake's details
         marker.bindPopup(`
-          <h3>${locality}</h3>
-          Date: ${formattedDate}<br>
+          <h3 style="font-size: 18px; font-weight: bold">${locality}</h3>
+          <p>Date: ${formattedDate}<br>
           MMI: ${mmi}<br>
           Magnitude: ${formattedMagnitude}<br>
-          Depth: ${formattedDepth}
+          Depth: ${formattedDepth}</p>
         `);
 
         // Show the popup when hovering over the marker
@@ -98,3 +98,5 @@ fetch('/api/data') // Flask Backend URL
   .catch(error => {
     console.error('Error:', error);
   });
+
+  
