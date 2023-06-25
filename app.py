@@ -84,7 +84,7 @@ def quake_mmi_data():
 
 # Set up API report data aggregated as report/dropdown
 
-@app.route('/api/report/dropdown')
+@app.route('/api/dropdown')
 def dropdown():
     connection = engine.connect()
     
@@ -109,26 +109,68 @@ def dropdown():
         return jsonify(data_dict)
 
 
-# @app.route("/api/v1.0/quake_mmi")
-# def quake_mmi_data():
+@app.route("/api/dropdown/notfelt")
+def quake_mmi_notfelt():
 
-#     session = Session(engine)
+    # with engine.connect as connection:
+    connection = engine.connect()
 
-#     results = session.query( quake.date, quake.mmi, quake.magnitude, quake.longitude, quake.latitude, quake.time, quake.depth).all()
-#     earthquake = list(np.ravel(results))
+    results = connection.execute('select * from quake_mmi where mmi <= 1')
 
-    # results = [list(r) for r in results]
+    rows = results.fetchall()
+    data = [dict(row) for row in rows]
 
-    # earthquake = {
-    #     "table": results
-    # }
+    connection.close()
 
-    # session.close()
-    # Convert list of tuples into normal list
+    return jsonify(data)
 
-    
-    # return jsonify(earthquake)
-    
+
+@app.route("/api/dropdown/weak")
+def quake_mmi_weak():
+
+    # with engine.connect as connection:
+    connection = engine.connect()
+
+    results = connection.execute('select * from quake_mmi where mmi >2 and mmi <= 4')
+
+    rows = results.fetchall()
+    data = [dict(row) for row in rows]
+
+    connection.close()
+
+    return jsonify(data)
+
+
+@app.route("/api/dropdown/moderate")
+def quake_mmi_moderate():
+
+    # with engine.connect as connection:
+    connection = engine.connect()
+
+    results = connection.execute('select * from quake_mmi where mmi =5')
+
+    rows = results.fetchall()
+    data = [dict(row) for row in rows]
+
+    connection.close()
+
+    return jsonify(data)
+
+@app.route("/api/dropdown/strong")
+def quake_mmi_strong():
+
+    # with engine.connect as connection:
+    connection = engine.connect()
+
+    results = connection.execute('select * from quake_mmi where mmi >=6')
+
+    rows = results.fetchall()
+    data = [dict(row) for row in rows]
+
+    connection.close()
+
+    return jsonify(data)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
