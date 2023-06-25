@@ -10,8 +10,11 @@
 An interactive web-based map to visualize earthquake data in New Zealand collected by the GeoNet, highlighting the risk between occurence.
 
 ## Background
-An application has been developed with the purpose of visualizing earthquake data from the past 365 days in New Zealand. The data utilized for this application is sourced from Geonet, an initiative established in 2001 to construct and operate a contemporary geological hazard monitoring system in New Zealand. Geonet effectively tracks and records approximately 20,000 earthquakes annually within and surrounding the nation, of which the majority are of small magnitude, while approximately 250 events are significant enough to be perceptible. To access earthquake statistics for the New Zealand region based on observations since 1960, the Earthquake Statistics page is available, while the GeoNet Quake Statistics page provides information on earthquake occurrences within the past year. 
-The primary objective behind developing this application is to provide a straightforward and expeditious visualization of recent seismic activity in various locations, thereby facilitating public comprehension of the associated risks and frequency of such events.
+An application has been developed with the purpose of visualizing earthquake data from the past 365 days in New Zealand. The data utilized for this application is sourced from Geonet, an initiative established in 2001 to construct and operate a contemporary geological hazard monitoring system in New Zealand. Geonet effectively tracks and records approximately 20,000 earthquakes annually within and surrounding the nation, of which the majority are of small magnitude, while approximately 250 events are significant enough to be perceptible.   
+To access earthquake statistics for the New Zealand region based on observations since 1960, the Earthquake Statistics page is available, while the GeoNet Quake Statistics page provides information on earthquake occurrences within the past year.   
+
+The primary objective behind developing this application is to provide a straightforward and expeditious visualization of recent seismic activity in various locations, thereby facilitating public comprehension of the associated risks and frequency of such events. Our target audience of this application were individuals with little knowledge of New Zealand or earthquake data - such as first time travellers or digital nomads. We aimed to limit data shown per tab so that users could navigate intuitively without being overwhelmed by data they had little experience with.
+
 
 ## Features
 
@@ -26,8 +29,16 @@ The primary objective behind developing this application is to provide a straigh
 
 ## Installation
 
-1. Clone the repository.
-2. Open the `index.html` file in a web browser.
+1. Clone the repository to local and save as <nz_quake_project>
+2. Create virtual environment : using git command:  mkdir <nz_quake_env>
+3. Activate virtual environment and move to repositoty directory using git command: conda activate nz_quake_env ; cd <nc_quake_project>
+4. Install Flask using command: pip install flask
+5. Run flask app using command: flask run . We reccoment to copy host address and open using google chrome.  
+Refer to folder "app images" for images of the application in the chrome browser. 
+
+In order to create the database from scratch start with file under the following:
+- data> create_database> 1.1 quake_mmi_fetch.ipynb: run code to create csv from source API  .
+- data> create_database> 1.2 quake_mmi_sqlite_fetch.ipynb: run code to create squlite db table using csv.
 
 ## Usage
 
