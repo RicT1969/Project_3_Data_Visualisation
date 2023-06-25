@@ -49,15 +49,15 @@ def main():
 
 @app.route("/bar-chart")
 def bar_chart():
-    return render_template("BarChartTab.html")
+    return render_template("barcharttab.html")
 
 @app.route("/map-tab")
 def map_tab():
-    return render_template("MapTab.html")
+    return render_template("maptab.html")
 
 @app.route("/line-chart")
 def line_chart():
-    return render_template("LineChart.html")
+    return render_template("linechart.html")
 
 # ------------------------------------------------
 # API 
