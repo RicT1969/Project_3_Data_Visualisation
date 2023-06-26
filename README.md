@@ -33,8 +33,9 @@ The primary objective behind developing this application is to provide a straigh
 2. Create virtual environment : using git command:  mkdir <nz_quake_env>
 3. Activate virtual environment and move to repositoty directory using git command: conda activate nz_quake_env ; cd <nz_quake_project>
 4. Install Flask using command: pip install flask
-5. Run flask app using command: flask run . We reccoment to copy host address and open using google chrome.  
-Refer to folder "app images" for images of the application in the chrome browser. 
+5. Run flask app using command: flask run . We recommend to copy host address and open using google chrome.    
+
+Refer to folder "app images" for images of the application in the chrome browser.   
 
 In order to create the database from scratch start with file under the following:
 - data> create_database> 1.1 quake_mmi_fetch.ipynb: run code to create csv from source API  .
