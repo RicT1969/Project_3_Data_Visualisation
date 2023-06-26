@@ -31,7 +31,7 @@ The primary objective behind developing this application is to provide a straigh
 
 1. Clone the repository to local and save as <nz_quake_project>
 2. Create virtual environment : using git command:  mkdir <nz_quake_env>
-3. Activate virtual environment and move to repositoty directory using git command: conda activate nz_quake_env ; cd <nc_quake_project>
+3. Activate virtual environment and move to repositoty directory using git command: conda activate nz_quake_env ; cd <nz_quake_project>
 4. Install Flask using command: pip install flask
 5. Run flask app using command: flask run . We reccoment to copy host address and open using google chrome.  
 Refer to folder "app images" for images of the application in the chrome browser. 
