@@ -26,6 +26,10 @@ The primary objective behind developing this application is to provide a straigh
 ## Data Sources
 
 - Earthquake data: [GeoNet](https://www.geonet.org.nz/earthquake/statistics)
+- GeoNet API url: https://api.geonet.org.nz/
+
+## App Demo Images  
+Refer to folder "app images" for images of the application in the chrome browser.   
 
 ## Installation
 
@@ -35,8 +39,7 @@ The primary objective behind developing this application is to provide a straigh
 4. Install Flask using command: pip install flask
 5. Run flask app using command: flask run . We recommend to copy host address and open using google chrome.    
   
-## App Demo Images  
-Refer to folder "app images" for images of the application in the chrome browser.   
+## Create Database from GeoNet API URL
 
 In order to create the database from scratch start with file under the following:
 - data> create_database> 1.1 quake_mmi_fetch.ipynb: run code to create csv from source API  .
