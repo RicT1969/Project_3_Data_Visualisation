@@ -84,7 +84,7 @@ def quake_mmi_data():
 
 # Set up API report data aggregated as report/dropdown
 
-@app.route('/api/dropdown')
+@app.route('/api/data/All')
 def dropdown():
     connection = engine.connect()
     
@@ -109,7 +109,7 @@ def dropdown():
         return jsonify(data_dict)
 
 
-@app.route("/api/dropdown/notfelt")
+@app.route("/api/data/NotFelt")
 def quake_mmi_notfelt():
 
     # with engine.connect as connection:
@@ -125,7 +125,7 @@ def quake_mmi_notfelt():
     return jsonify(data)
 
 
-@app.route("/api/dropdown/weak")
+@app.route("/api/data/Weak")
 def quake_mmi_weak():
 
     # with engine.connect as connection:
@@ -141,7 +141,7 @@ def quake_mmi_weak():
     return jsonify(data)
 
 
-@app.route("/api/dropdown/moderate")
+@app.route("/api/data/Moderate")
 def quake_mmi_moderate():
 
     # with engine.connect as connection:
@@ -156,7 +156,7 @@ def quake_mmi_moderate():
 
     return jsonify(data)
 
-@app.route("/api/dropdown/strong")
+@app.route("/api/data/Strong")
 def quake_mmi_strong():
 
     # with engine.connect as connection:
