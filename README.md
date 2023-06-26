@@ -28,8 +28,6 @@ The primary objective behind developing this application is to provide a straigh
 - Earthquake data: [GeoNet](https://www.geonet.org.nz/earthquake/statistics)
 - GeoNet API url: https://api.geonet.org.nz/
 
-## App Demo Images  
-Refer to folder "app images" for images of the application in the chrome browser.   
 
 ## Installation
 
@@ -45,9 +43,10 @@ In order to create the database from scratch start with file under the following
 - data> create_database> 1.1 quake_mmi_fetch.ipynb: run code to create csv from source API  .
 - data> create_database> 1.2 quake_mmi_sqlite_fetch.ipynb: run code to create squlite db table using csv.
 
-## Usage
+## Usage and App Demo Images  
 
 Explore the interactive map to see the earthquake data visualized with markers representing Earthquake details (start date, end date and MMI Filter). Click on 'Apply filter' to get more information about the earthquakes regarding the dates filled.
+Refer to folder "app images" for images of the application in the chrome browser.   
 
 ## Built With
 
