@@ -45,7 +45,8 @@ In order to create the database from scratch start with file under the following
 
 ## Usage and App Demo Images  
 
-Explore the interactive map to see the earthquake data visualized with markers representing Earthquake details (start date, end date and MMI Filter). Click on 'Apply filter' to get more information about the earthquakes regarding the dates filled.
+Explore the interactive map to see the earthquake data visualized with markers representing Earthquake details (start date, end date and MMI Filter).   
+Click on 'Apply filter' to get more information about the earthquakes regarding the dates filled.  
 Refer to folder "app images" for images of the application in the chrome browser.   
 
 ## Built With
