@@ -118,13 +118,13 @@ A map instance created using Leaflet and set to view New Zealand. The map is dis
 
 <li><b>Popup and Event Handling</b></li><ul>
   
-<li>Popup added to each marker, displaying the earthquake's metadats (locality, date, MMI, magnitude, and depth). Event listeners show and hide the popup when hovering over or moving the mouse out of the marker.</li></ul>
+<li>Popup added to each marker, displaying the earthquake's metadats (locality, date, MMI, magnitude, and depth). Event listeners show and hide the popup when hovering over or moving the mouse out of the marker.</li></ul></ul>
 
 <p><h3>Bar Chart</h3></p>
 
-<p>JavaScript code creates a bar chart using Chart.js library and fetching data from the Flask backend API. The chart is designed to display earthquake magnitude data over time.</p><p> In summary:</p><ul>
+<p>JavaScript code creates a bar chart using Chart.js library and fetching data from the Flask backend API. The chart is designed to display earthquake magnitude data over time.</p><p> In summary:</p>
 
-<li><b>Chart Initialization</b></li><ul>
+<li><b>Chart Initialisation</b></li><ul>
 The code waits for the DOM content to load before executing ensuring that the necessary HTML elements are available for manipulation. Variables are initialised for the chart canvas element (barChartCanvas), the chart instance (myChart) and the original data (originalData).</li></ul>
 <li><b>Data Fetching</b></li><ul><li>
 Data is fetched from the backend API endpoint "/api/data" and converted to JSON format.</li></ul>
@@ -161,7 +161,7 @@ The updateChart function is responsible for updating the chart based on the sele
 
 
 <p><h3>Earthquake Data Table</h3></p>
-<p>This JavaScript code fetches earthquake data from a database through a Flask API endpoint and populates an HTML table with the retrieved data. The table can be filtered based on the Modified Mercalli Intensity (MMI) value selected by the user.</p></ul>
+<p>This JavaScript code fetches earthquake data from a database through a Flask API endpoint and populates an HTML table with the retrieved data. The table can be filtered based on the Modified Mercalli Intensity (MMI) value selected by the user.</p>
 
 <p><h3>Fetching Data</h3></p><ul>
 <li>The code makes a GET request to the "/api/data" endpoint of the Flask API to fetch earthquake data and converts it to JSON format.
