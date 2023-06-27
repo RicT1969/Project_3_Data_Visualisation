@@ -102,38 +102,38 @@ Libraries and modules imported, including Flask, SQLAlchemy, SQLite3 and Pickle 
 <p>In summary:<p><ul>
 
 <li><b>Marker Radius Calculation:</b></li><ul>
-<li>getMarkerRadius function calculates marker radius based on the magnitude of the earthquake. It uses a linear scaling function, adjusting the scaling factor as needed.</li></ul>
+getMarkerRadius function calculates marker radius based on the magnitude of the earthquake. It uses a linear scaling function, adjusting the scaling factor as needed.</ul>
 
 <li><b>Color Determination</b></li><ul>
-<li>The getColor function determines the color of the marker based on the MMI (Modified Mercalli Intensity) of the earthquake. It assigns different colors based on thresholds.</li></ul>
+The getColor function determines the color of the marker based on the MMI (Modified Mercalli Intensity) of the earthquake. It assigns different colors based on thresholds.</ul>
 
-<li><b>Map Initialization</b></li>
-A map instance created using Leaflet and set to view New Zealand. The map is displayed on an HTML element with the ID "map" and the tile layer is sourced from OpenStreetMap.</li>
+<li><b>Map Initialization</b></li><ul>
+A map instance created using Leaflet and set to view New Zealand. The map is displayed on an HTML element with the ID "map" and the tile layer is sourced from OpenStreetMap.</ul>
 <li><b>Fetching Earthquake Data</b></li><ul>
-<li>The earthquake data is fetched from the backend API endpoint "/api/data" and the response converted to JSON format.</li></ul>
+The earthquake data is fetched from the backend API endpoint "/api/data" and the response converted to JSON format.</ul>
 
 <li><b>Data Processing and Marker Creation</b></li><ul>
   
-<li>Earthquake data is processed in a series of steps. Each earthquake's latitude, longitude, depth, magnitude, MMI, locality and date are extracted. The marker's radius is calculated using the getMarkerRadius function.</li></ul>
+Earthquake data is processed in a series of steps. Each earthquake's latitude, longitude, depth, magnitude, MMI, locality and date are extracted. The marker's radius is calculated using the getMarkerRadius function.</ul>
 
 <li><b>Popup and Event Handling</b></li><ul>
   
-<li>Popup added to each marker, displaying the earthquake's metadats (locality, date, MMI, magnitude, and depth). Event listeners show and hide the popup when hovering over or moving the mouse out of the marker.</li></ul></ul>
+Popup added to each marker, displaying the earthquake's metadats (locality, date, MMI, magnitude, and depth). Event listeners show and hide the popup when hovering over or moving the mouse out of the marker.</ul></ul>
 
 <p><h3>Bar Chart</h3></p>
 
 <p>JavaScript code creates a bar chart using Chart.js library and fetching data from the Flask backend API. The chart is designed to display earthquake magnitude data over time.</p><p> In summary:</p>
 
 <li><b>Chart Initialisation</b></li><ul>
-The code waits for the DOM content to load before executing ensuring that the necessary HTML elements are available for manipulation. Variables are initialised for the chart canvas element (barChartCanvas), the chart instance (myChart) and the original data (originalData).</li></ul>
-<li><b>Data Fetching</b></li><ul><li>
+The code waits for the DOM content to load before executing ensuring that the necessary HTML elements are available for manipulation. Variables are initialised for the chart canvas element (barChartCanvas), the chart instance (myChart) and the original data (originalData).</ul>
+<li><b>Data Fetching</b></li><ul>
 Data is fetched from the backend API endpoint "/api/data" and converted to JSON format.</li></ul>
-<li><b>Data Processing and Chart Creation</b></li><ul><li>
+<li><b>Data Processing and Chart Creation</b><ul>
 The original data is stored for reference. Labels and values are extracted from the data, representing the locality and magnitude of earthquakes. A bar chart is created using the Chart.js library, and assigned to the myChart variable. The chart is configured with labels, datasets, and styling options.</li></ul>
-<li><b>Event Handling</b></li><ul><li>
-An event listener is set on a button element with the ID "filterButton". When the button is clicked, the updateChart function is called.</li></ul>
-<li><b>Chart Updating</b></li><ul><li>
-The updateChart function is responsible for updating the chart based on the selected date range. It retrieves the start and end dates from HTML input elements. The original data is filtered based on the selected date range, resulting in the filteredData array. Labels and values are extracted from the filtered data. The chart's labels and data are updated accordingly using the myChart instance, and the chart is visually updated using the update method.</li></ul>
+<li><b>Event Handling</b></li><ul>
+An event listener is set on a button element with the ID "filterButton". When the button is clicked, the updateChart function is called.</ul>
+<li><b>Chart Updating</b></li><ul>
+The updateChart function is responsible for updating the chart based on the selected date range. It retrieves the start and end dates from HTML input elements. The original data is filtered based on the selected date range, resulting in the filteredData array. Labels and values are extracted from the filtered data. The chart's labels and data are updated accordingly using the myChart instance, and the chart is visually updated using the update method.</ul>
 
 
 <p><h3>Line Chart</h3></p>
