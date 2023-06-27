@@ -153,7 +153,7 @@ The updateChart function is responsible for updating the chart based on the sele
 The right column contains a card with the title "Quakes by Magnitude and locality over time" and a placeholder content for a visualization.</li>
 <li>Within the visualization card, there is a canvas element with the id "barChartCanvas" for rendering the bar chart. This relates to the second page.</li>
 <li>Date input fields labeled "Start Date" and "End Date" are provided for data filtering and a 
-A button with the id "filterButton" is available to apply the filter.</li></ul></ol>
+A button with the id "filterButton" is available to apply the filter.</li></ul>
 
 <p><h3>Line Chart</h3></p>
 
@@ -162,7 +162,7 @@ A button with the id "filterButton" is available to apply the filter.</li></ul><
 <p><h3>Initialisation</h3></p><ul>
 <li>The code waits for the DOM content to load before executing the main functionality.</li>
 <li>The lineChartCanvas element retrieved from DOM using its ID.</li>
-<li>Variables myChart and originalData are declared to store the chart object and the original data fetched from the API, respectively.</li>
+<li>Variables myChart and originalData are declared to store the chart object and the original data fetched from the API, respectively.</li></ul>
 <p><h3>Fetching Data</h3></p><ul>
 <li>The code makes a GET request to the "/api/data" endpoint of the Flask API and the response is converted to JSON format.</li>
 <li>The original data is stored in the originalData variable for later reference.</li></ul>
