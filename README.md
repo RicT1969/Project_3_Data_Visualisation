@@ -138,7 +138,7 @@ An event listener is set on a button element with the ID "filterButton". When th
 <li><b>Chart Updating</b></li><ul><li>
 The updateChart function is responsible for updating the chart based on the selected date range. It retrieves the start and end dates from HTML input elements. The original data is filtered based on the selected date range, resulting in the filteredData array. Labels and values are extracted from the filtered data. The chart's labels and data are updated accordingly using the myChart instance, and the chart is visually updated using the update method.</li></ul>
 <li><b>Error Handling</b></li><ul><li>
-Error handling is implemented as described above for the map</li></ul></ul>
+<li>Error handling is implemented as described above for the map</li></ul></ul>
 
 <p><h3>HTML Code</h3></p>
 <p>The HTML code builds the webpage for the New Zealand Earthquake Dashboard, focusing on the structure and layout of the dashboard page.</p>
@@ -155,29 +155,27 @@ The right column contains a card with the title "Quakes by Magnitude and localit
 <li>Date input fields labeled "Start Date" and "End Date" are provided for data filtering and a 
 A button with the id "filterButton" is available to apply the filter.</li></ul></ol>
 
-<p><h3>Bar Chart</h3></p>
+<p><h3>Line Chart</h3></p>
 
 <p>JavaScript code fetches data from a Flask API endpoint and creates a line chart using the Chart.js library. The chart is displayed on an HTML canvas element with the ID "lineChartCanvas". The code also includes functionality to update the chart based on a selected date range.</p></p><p> In summary:</p><ul>
 
-<p><h3>Initialisation</h3></p>
+<p><h3>Initialisation</h3></p><ul>
 <li>The code waits for the DOM content to load before executing the main functionality.</li>
-<li>The lineChartCanvas element is retrieved from the DOM using its ID.</li>
-<li></li>Variables myChart and originalData are declared to store the chart object and the original data fetched from the API, respectively.
-<p><h3>Fetching Data</h3></p>
-<li>The code makes a GET request to the "/api/data" endpoint of the Flask API.</li>
-<liThe response is converted to JSON format.</li>
-<liThe original data is stored in the originalData variable for later reference.</li>
-<p><h3>Chart Creation</h3></p>
-The labels and values are extracted from the fetched data using the map() method.
-A new line chart is created using the Chart.js library and assigned to the myChart variable.
-The chart's configuration includes the type as a line chart, labels, data, and visual customization options.
-Updating the Chart
-An event listener is added to the "filterButton" element's click event.
-When the button is clicked, the updateChart() function is called.
-The updateChart() function retrieves the selected date range from input fields.
-The original data is filtered based on the selected date range using the filter() method.
-The labels and values are extracted from the filtered data.
-The chart's labels and data are updated with the new values, and the chart is updated using the update() method.
-Error Handling
-If there is an error while fetching the data from the API, an error message is logged to the console.
-Please note that this summary assumes familiarity with JavaScript, HTML, Chart.js library, and the Flask framework.
+<li>The lineChartCanvas element retrieved from DOM using its ID.</li>
+<li>Variables myChart and originalData are declared to store the chart object and the original data fetched from the API, respectively.</li>
+<p><h3>Fetching Data</h3></p><ul>
+<li>The code makes a GET request to the "/api/data" endpoint of the Flask API and the response is converted to JSON format.</li>
+<li>The original data is stored in the originalData variable for later reference.</li></ul>
+<p><h3>Chart Creation</h3></p><ul>
+<li>Labels and values extracted from the fetched data using the map() method.</li>
+<li>A new line chart is created using the Chart.js library and assigned to the myChart variable.</li>
+<li>The chart's configuration includes the type as a line chart, labels, data, and visual customization options.</li></ul>
+<p><h3>Updating the Chart</h3></p><ul>
+<li>An event listener added to the "filterButton" element's click event.</li>
+<li>When the button is clicked, the updateChart() function is called.</li>
+<li>The updateChart() function retrieves the selected date range from input fields.</li>
+<li>The original data is filtered based on the selected date range using the filter() method.</li>
+<li>The labels and values are extracted from the filtered data.</li>
+<li>The chart's labels and data are updated with the new values and the chart updated using the update() method.</li></ul>
+<p><h3>Error Handling</h3></p><ul>
+<li>As above.</li></ul></ul>
