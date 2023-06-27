@@ -140,21 +140,6 @@ The updateChart function is responsible for updating the chart based on the sele
 <li><b>Error Handling</b></li><ul><li>
 <li>Error handling is implemented as described above for the map</li></ul></ul>
 
-<p><h3>HTML Code</h3></p>
-<p>The HTML code builds the webpage for the New Zealand Earthquake Dashboard, focusing on the structure and layout of the dashboard page.</p>
-<p>In summary:</p><ul>
-<li>The code uses the Bulma CSS framework and the Chart.js library.</li>
-<li>References a custom CSS file for additional styling and the requisite JavaScript files for additional functionality.</li>
-<li>The page structure consists of a header, navigation bar, and content sections:</li>
-<li>The header contains the title of the dashboard.</li>
-<li>The navigation bar includes links for "Map View," "Bar Chart," and "Line Chart."</li>
-<li>For the map chart, The content is divided into two columns using the Bulma grid system.</li>
-<li>The left column contains a card with the title "Locations" and a placeholder content for a map.
-The right column contains a card with the title "Quakes by Magnitude and locality over time" and a placeholder content for a visualization.</li>
-<li>Within the visualization card, there is a canvas element with the id "barChartCanvas" for rendering the bar chart. This relates to the second page.</li>
-<li>Date input fields labeled "Start Date" and "End Date" are provided for data filtering and a 
-A button with the id "filterButton" is available to apply the filter.</li></ul>
-
 <p><h3>Line Chart</h3></p>
 
 <p>JavaScript code fetches data from a Flask API endpoint and creates a line chart using the Chart.js library. The chart is displayed on an HTML canvas element with the ID "lineChartCanvas". The code also includes functionality to update the chart based on a selected date range.</p></p><p> In summary:</p>
@@ -179,3 +164,20 @@ A button with the id "filterButton" is available to apply the filter.</li></ul>
 <li>The chart's labels and data are updated with the new values and the chart updated using the update() method.</li></ul>
 <p><h3>Error Handling</h3></p><ul>
 <li>As above.</li></ul></ul>
+
+<p><h3>HTML Code</h3></p>
+<p>The HTML code builds the webpage for the New Zealand Earthquake Dashboard, focusing on the structure and layout of the dashboard page.</p>
+<p>In summary:</p><ul>
+<li>The code uses the Bulma CSS framework and the Chart.js library.</li>
+<li>References a custom CSS file for additional styling and the requisite JavaScript files for additional functionality.</li>
+<li>The page structure consists of a header, navigation bar, and content sections:</li>
+<li>The header contains the title of the dashboard.</li>
+<li>The navigation bar includes links for "Map View," "Bar Chart," and "Line Chart."</li>
+<li>For the map chart, The content is divided into two columns using the Bulma grid system.</li>
+<li>The left column contains a card with the title "Locations" and a placeholder content for a map.
+The right column contains a card with the title "Quakes by Magnitude and locality over time" and a placeholder content for a visualization.</li>
+<li>Within the visualization card, there is a canvas element with the id "barChartCanvas" for rendering the bar chart. This relates to the second page.</li>
+<li>Date input fields labeled "Start Date" and "End Date" are provided for data filtering and a 
+A button with the id "filterButton" is available to apply the filter.</li></ul>
+
+
