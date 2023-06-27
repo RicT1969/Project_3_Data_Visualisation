@@ -173,7 +173,7 @@ The updateChart function is responsible for updating the chart based on the sele
 <li>The filtered data is sliced to include only the first 10 rows and the function loops through the sliced data and creates rows and cells for each earthquake.</li>
 <li>The earthquake's latitude, longitude, depth, magnitude, MMI, locality, and date are extracted and formatted appropriately.</li>
 <li>The created table rows and cells are appended to the table body in the HTML document.</li></ul>
-<p><h3>MMI Filter Event Listener</h3></p></ul>
+<p><h3>MMI Filter Event Listener</h3></p><ul>
 <li>The code selects the MMI filter element from the HTML document using its ID.</li>
 <li>An event listener is added to the "change" event of the MMI filter element.</li>
 <li>When the user selects a different MMI filter value, the event listener calls the updateTableByMMIFilter() function with the selected value.
