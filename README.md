@@ -157,7 +157,7 @@ A button with the id "filterButton" is available to apply the filter.</li></ul>
 
 <p><h3>Line Chart</h3></p>
 
-<p>JavaScript code fetches data from a Flask API endpoint and creates a line chart using the Chart.js library. The chart is displayed on an HTML canvas element with the ID "lineChartCanvas". The code also includes functionality to update the chart based on a selected date range.</p></p><p> In summary:</p><ul>
+<p>JavaScript code fetches data from a Flask API endpoint and creates a line chart using the Chart.js library. The chart is displayed on an HTML canvas element with the ID "lineChartCanvas". The code also includes functionality to update the chart based on a selected date range.</p></p><p> In summary:</p>
 
 <p><h3>Initialisation</h3></p><ul>
 <li>The code waits for the DOM content to load before executing the main functionality.</li>
