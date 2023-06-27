@@ -165,7 +165,34 @@ The updateChart function is responsible for updating the chart based on the sele
 <p><h3>Error Handling</h3></p><ul>
 <li>As above.</li></ul></ul>
 
-<p><h3>HTML Code</h3></p>
+
+<p><h3>Earthquake Data Table</h3></p>
+<p>This JavaScript code fetches earthquake data from a database through a Flask API endpoint and populates an HTML table with the retrieved data. The table can be filtered based on the Modified Mercalli Intensity (MMI) value selected by the user.</p></ul>
+
+<p><h3>Fetching Data</h3></p><ul>
+<li>The code makes a GET request to the "/api/data" endpoint of the Flask API to fetch earthquake data and converts it to JSON format.
+<li>The fetched data is stored in the allEarthquakeData variable.</li></ul>
+<p><h3>Updating the Table</h3></p><ul>
+<li>The updateTableByMMIFilter() function is responsible for updating the table based on the selected MMI filter value.</li>
+<li>The function first clears the existing table data by emptying the table body.</li>
+<li>The earthquake data is filtered based on the MMI value using the filter() method.</li>
+<li>The filtered data is sliced to include only the first 10 rows.</li>
+<li>The function loops through the sliced data and creates table rows and cells for each earthquake's details.</li>
+<li>The earthquake's latitude, longitude, depth, magnitude, MMI, locality, and date are extracted and formatted appropriately.</li>
+<li>The created table rows and cells are appended to the table body in the HTML document.</li>
+<li>The earthquake details are printed to the console.</li>
+<p><h3>MMI Filter Event Listener</h3></p><ul>
+<li>The code selects the MMI filter element from the HTML document using its ID.</li>
+<li>An event listener is added to the "change" event of the MMI filter element.</li>
+<li>When the user selects a different MMI filter value, the event listener calls the updateTableByMMIFilter() function with the selected value.
+Usage</li>
+<li>Set up a Flask API with a "/api/data" endpoint to serve earthquake data from a database.</li>
+<li>Create an HTML table with the ID "earthquakeTable" in your document to display the earthquake data.</li>
+<li>Include the JavaScript code in your project and link it to the HTML document.</li>
+<li>When the page loads, the code will fetch earthquake data from the API and populate the table with the default MMI filter.</li>
+<li>The table will update dynamically when the user selects a different MMI filter value.</li></ul>
+
+ <p><h3>HTML Code</h3></p>
 <p>The HTML code builds the webpage for the New Zealand Earthquake Dashboard, focusing on the structure and layout of the dashboard page.</p>
 <p>In summary:</p><ul>
 <li>The code uses the Bulma CSS framework and the Chart.js library.</li>
