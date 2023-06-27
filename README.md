@@ -120,9 +120,6 @@ A map instance created using Leaflet and set to view New Zealand. The map is dis
   
 <li>Popup added to each marker, displaying the earthquake's metadats (locality, date, MMI, magnitude, and depth). Event listeners show and hide the popup when hovering over or moving the mouse out of the marker.</li></ul>
 
-<li><b>Error Handling</b></li><ul>
-<li>Error handling implemented to catch errors during the data fetching and processing stages.</li></ul></ul>
-
 <p><h3>Bar Chart</h3></p>
 
 <p>JavaScript code creates a bar chart using Chart.js library and fetching data from the Flask backend API. The chart is designed to display earthquake magnitude data over time.</p><p> In summary:</p><ul>
@@ -137,8 +134,7 @@ The original data is stored for reference. Labels and values are extracted from 
 An event listener is set on a button element with the ID "filterButton". When the button is clicked, the updateChart function is called.</li></ul>
 <li><b>Chart Updating</b></li><ul><li>
 The updateChart function is responsible for updating the chart based on the selected date range. It retrieves the start and end dates from HTML input elements. The original data is filtered based on the selected date range, resulting in the filteredData array. Labels and values are extracted from the filtered data. The chart's labels and data are updated accordingly using the myChart instance, and the chart is visually updated using the update method.</li></ul>
-<li><b>Error Handling</b></li><ul><li>
-<li>Error handling is implemented as described above for the map</li></ul></ul>
+
 
 <p><h3>Line Chart</h3></p>
 
@@ -162,8 +158,6 @@ The updateChart function is responsible for updating the chart based on the sele
 <li>The original data is filtered based on the selected date range using the filter() method.</li>
 <li>The labels and values are extracted from the filtered data.</li>
 <li>The chart's labels and data are updated with the new values and the chart updated using the update() method.</li></ul>
-<p><h3>Error Handling</h3></p><ul>
-<li>As above.</li></ul></ul>
 
 
 <p><h3>Earthquake Data Table</h3></p>
@@ -181,7 +175,7 @@ The updateChart function is responsible for updating the chart based on the sele
 <li>The earthquake's latitude, longitude, depth, magnitude, MMI, locality, and date are extracted and formatted appropriately.</li>
 <li>The created table rows and cells are appended to the table body in the HTML document.</li>
 <li>The earthquake details are printed to the console.</li>
-<p><h3>MMI Filter Event Listener</h3></p><ul>
+<p><h3>MMI Filter Event Listener</h3></p></ul>
 <li>The code selects the MMI filter element from the HTML document using its ID.</li>
 <li>An event listener is added to the "change" event of the MMI filter element.</li>
 <li>When the user selects a different MMI filter value, the event listener calls the updateTableByMMIFilter() function with the selected value.
